@@ -1,1 +1,8 @@
-{"chapter":1,"next_speaker":"A","status":"not_started","updated_at":null,"chapter_start":1}
+{
+  "chapter": 1,
+  "next_speaker": "B",
+  "status": "paused_error",
+  "updated_at": "2026-10-24T07:37:23+00:00",
+  "chapter_start": 1,
+  "last_error": "HTTP 403: error code: 1010\n"
+}
