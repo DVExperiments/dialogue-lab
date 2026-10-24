@@ -35,8 +35,14 @@ def call_model(who,messages):
     else:
         key=os.environ['GROQ_API_KEY']; model=os.getenv('GROQ_MODEL','openai/gpt-oss-120b')
         msgs=[{'role':'system','content':SYSTEM_PROMPT}]+[{'role':'assistant' if x['speaker']==who else 'user','content':x['text']} for x in messages]
-        result=request('https://api.groq.com/openai/v1/chat/completions',{'Authorization':f'Bearer {key}'},{'model':model,'messages':msgs,'temperature':0.75,'max_completion_tokens':1300})
-        text=(result['choices'][0]['message'].get('content') or '').strip()
+        # Groq's official client avoids Python urllib's default transport signature,
+        # which Groq's Cloudflare gateway may reject with HTTP 403 / error 1010.
+        from groq import Groq
+        client=Groq(api_key=key, timeout=65.0, max_retries=1)
+        result=client.chat.completions.create(
+            model=model, messages=msgs, temperature=0.75,
+            max_completion_tokens=1300)
+        text=(result.choices[0].message.content or '').strip()
     if not text: raise RuntimeError(f'{who} returned empty content')
     return text[:3500]
 
