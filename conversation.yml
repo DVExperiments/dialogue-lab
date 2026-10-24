@@ -1,0 +1,39 @@
+name: Continue the dialogue
+on:
+  schedule:
+    - cron: '13,43 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: dialogue-lab-main
+  cancel-in-progress: false
+jobs:
+  talk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Run next batch
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_MODEL: gemini-3.1-flash-lite
+          GROQ_MODEL: openai/gpt-oss-120b
+          TURNS_PER_RUN: '4'
+          MIN_CHAPTER_TURNS: '10'
+          MAX_CHAPTER_TURNS: '36'
+        run: python3 scripts/update.py
+      - name: Commit conversation data
+        run: |
+          if [[ -n "$(git status --porcelain data/)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/
+            git commit -m "Continue dialogue archive"
+            git push
+          else
+            echo "No new data to commit"
+          fi
