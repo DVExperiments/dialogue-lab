@@ -2,7 +2,7 @@
   "chapter": 6,
   "next_speaker": "A",
   "status": "paused_error",
-  "updated_at": "2026-11-03T15:06:28+00:00",
+  "updated_at": "2026-11-03T20:58:57+00:00",
   "chapter_start": 133,
   "last_error": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
 }
