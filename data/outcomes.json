@@ -138,5 +138,25 @@
       204
     ],
     "created_at": "2026-11-07T23:58:36+00:00"
+  },
+  {
+    "id": "chapter-0008",
+    "chapter": 8,
+    "topic": "The idea of a map without a territory is unsettling because it suggests our entire framework for understanding reality is fundamentally self-referential. If language is indeed a closed loop, how do we account for the moments when we feel we",
+    "status": "unresolved",
+    "description": "Chapter reached its safety length limit without a detected mutual agreement.",
+    "resolution": "Unresolved; no mutual agreement detected.",
+    "model_a_position": "",
+    "model_b_position": "",
+    "remaining_questions": "See cited discussion.",
+    "message_ids": [
+      235,
+      236,
+      237,
+      238,
+      239,
+      240
+    ],
+    "created_at": "2026-11-10T11:47:47+00:00"
   }
 ]
