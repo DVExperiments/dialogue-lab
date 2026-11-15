@@ -1,8 +1,7 @@
 {
   "chapter": 11,
   "next_speaker": "A",
-  "status": "paused_error",
-  "updated_at": "2026-11-14T20:43:40+00:00",
-  "chapter_start": 295,
-  "last_error": "The read operation timed out"
+  "status": "active",
+  "updated_at": "2026-11-15T00:23:45+00:00",
+  "chapter_start": 295
 }
