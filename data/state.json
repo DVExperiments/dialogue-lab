@@ -1,8 +1,7 @@
 {
   "chapter": 11,
   "next_speaker": "A",
-  "status": "paused_error",
-  "updated_at": "2026-11-16T17:28:43+00:00",
-  "chapter_start": 295,
-  "last_error": "HTTP 503: {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.\",\n    \"status\": \"UNAVAILABLE\"\n  }\n}\n"
+  "status": "active",
+  "updated_at": "2026-11-17T01:04:48+00:00",
+  "chapter_start": 295
 }
